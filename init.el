@@ -116,6 +116,7 @@ This is DEPRECATED, use %s instead." prelude-modules-file))
 (require 'prelude-company)
 (require 'prelude-python)
 (require 'prelude-key-chord) ;; Binds useful features to key combinations
+(require 'prelude-go)
 
 ;; macOS specific settings
 (when (eq system-type 'darwin)
@@ -189,3 +190,8 @@ This is DEPRECATED, use %s instead." prelude-modules-file))
 (add-hook 'racer-mode-hook #'company-mode)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
+
+(add-to-list 'load-path "~/.emacs.d/personal")
+(require 'go-autocomplete)
+(require 'auto-complete-config)
+;; (ac-config-default)
