@@ -195,3 +195,11 @@ This is DEPRECATED, use %s instead." prelude-modules-file))
 (require 'go-autocomplete)
 (require 'auto-complete-config)
 ;; (ac-config-default)
+
+(require 'sqlformat)
+;; (setq sqlformat-command "pg_format -")
+
+;; (define-key sql-mode-map (kbd "C-c C-f") 'sqlformat)
+
+
+;; (add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
