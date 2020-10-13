@@ -180,20 +180,20 @@ This is DEPRECATED, use %s instead." prelude-modules-file))
 (add-to-list 'load-path "~/.emacs.d/lisp")
 (add-hook 'python-mode-hook 'anaconda-mode)
 
-(require 'rust-mode)
-(with-eval-after-load 'rust-mode
-  (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
+;; (require 'rust-mode)
+;; (with-eval-after-load 'rust-mode
+;;   (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))
 
-(add-hook 'rust-mode-hook #'racer-mode)
-(add-hook 'racer-mode-hook #'eldoc-mode)
+;; (add-hook 'rust-mode-hook #'racer-mode)
+;; (add-hook 'racer-mode-hook #'eldoc-mode)
 
-(add-hook 'racer-mode-hook #'company-mode)
-(define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+;; (add-hook 'racer-mode-hook #'company-mode)
+;; (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq company-tooltip-align-annotations t)
 
 (add-to-list 'load-path "~/.emacs.d/personal")
-(require 'go-autocomplete)
-(require 'auto-complete-config)
+;; (require 'go-autocomplete)
+;; (require 'auto-complete-config)
 ;; (ac-config-default)
 
 (require 'sqlformat)
@@ -203,3 +203,10 @@ This is DEPRECATED, use %s instead." prelude-modules-file))
 
 
 ;; (add-hook 'sql-mode-hook 'sqlformat-on-save-mode)
+
+
+(add-hook 'c++-mode-hook 'irony-mode)
+(add-hook 'c-mode-hook 'irony-mode)
+(add-hook 'irony-mode-hook 'irony-cdb-autosetup-compile-options)
+(eval-after-load 'company
+  '(add-to-list 'company-backends 'company-irony))
